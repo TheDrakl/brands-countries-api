@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  django-web:
+    build: .
+    container_name: django-docker
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/mydatabase
+    volumes:
+      - .:/app
+
+  mongo:
+    image: mongo:6
+    container_name: mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

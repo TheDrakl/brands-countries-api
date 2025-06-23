@@ -1,5 +1,6 @@
 from pathlib import Path
 from mongoengine import connect
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,9 +82,13 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/brands-countries-api")
+
+MONGO_DB = os.environ.get("MONGO_DB", "brands-countries-api")
+
 connect(
-    db="brands-countries-api",
-    host="mongodb://localhost:27017/brands-countries-api",
+    db=MONGO_DB,
+    host=MONGO_URI,
 )
 
 GRAPHENE = {"SCHEMA": "core.schema.schema"}
