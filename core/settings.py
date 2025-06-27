@@ -82,9 +82,9 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/brands-countries-api")
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/greencarlane_backend")
 
-MONGO_DB = os.environ.get("MONGO_DB", "brands-countries-api")
+MONGO_DB = os.environ.get("MONGO_DB", "greencarlane_backend")
 
 connect(
     db=MONGO_DB,
