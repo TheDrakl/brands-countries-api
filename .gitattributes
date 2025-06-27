@@ -1,0 +1,1 @@
+core/scripts/charging_stations.json filter=lfs diff=lfs merge=lfs -text
